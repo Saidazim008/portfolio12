@@ -12,9 +12,27 @@ body {
     line-height: 1.6;
 }
 
+body::selection {
+    background: #0f0f0f;
+    color: #1c7fd6;
+  
+}
+
 html {
 
     scroll-behavior: smooth;
+}
+
+
+
+/* fisdio claslar */
+
+.p{
+    color: white;
+}
+
+.p::before{
+    color: blue;
 }
 
 .max-width {
@@ -174,6 +192,11 @@ header .overlay {
 
 }
 
+
+
+
+
+
 .text{
     margin-top: 90px;
 }
@@ -183,9 +206,14 @@ header .overlay {
     color: white;
     border: none;
     border-radius: 10px;
-
+     font-style: italic;
     padding: 10px 10px;
 
+}
+
+.rang::placeholder {
+    font-style: normal;
+    
 }
 
 .matn {

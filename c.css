@@ -1,3 +1,4 @@
+/* ===== 1. RESET & ASOSIY ===== */
 * {
     margin: 0;
     padding: 0;
@@ -9,16 +10,6 @@ body {
     background: #0f0f0f;
     color: #eee;
     line-height: 1.6;
-}
-
-body::selection {
-    background: #0f0f0f;
-    color: #1c7fd6;
-}
-
-html,
-body {
-    width: 100%;
     overflow-x: hidden;
 }
 
@@ -26,21 +17,12 @@ html {
     scroll-behavior: smooth;
 }
 
-/* fisdio claslar */
-.p {
-    color: white;
-}
-
-.p::before {
-    color: blue;
-}
-
 .max-width {
     max-width: 1300px;
     margin: auto;
 }
 
-/* ===== HEADER ===== */
+/* ===== 2. HEADER ===== */
 header {
     position: relative;
     height: 100vh;
@@ -56,6 +38,7 @@ header .bg-img {
     top: 0;
     left: 0;
     opacity: .3;
+    z-index: 1;
 }
 
 header .overlay {
@@ -63,6 +46,7 @@ header .overlay {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .95));
+    z-index: 2;
 }
 
 .header-content {
@@ -89,18 +73,22 @@ header .overlay {
     opacity: .9;
 }
 
-/* Buttons */
-.btn {
+/* Tugmalar */
+.btn,
+.btn-outline {
     display: inline-block;
     padding: 12px 30px;
-    color: #47a3ff;
     border-radius: 8px;
-    border: 2px solid #1c7fd6;
-    margin-top: 25px;
+    margin: 25px 5px 0;
     cursor: pointer;
     text-decoration: none;
     font-weight: 600;
     transition: .3s ease;
+}
+
+.btn {
+    color: #47a3ff;
+    border: 2px solid #1c7fd6;
 }
 
 .btn:hover {
@@ -109,28 +97,13 @@ header .overlay {
 }
 
 .btn-outline {
-    display: inline-block;
     border: 2px solid #47a3ff;
-    padding: 12px 30px;
-    color: white;
-    border-radius: 8px;
-    margin-left: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: .3s ease;
-}
-
-.btn-outline:hover {
     color: white;
 }
 
 /* Social Icons */
 .social {
     margin-top: 40px;
-}
-
-.icon {
-    color: #47a3ff;
 }
 
 .social i {
@@ -142,29 +115,29 @@ header .overlay {
 }
 
 .social i:hover {
-    color: white;
     transform: scale(1.2);
-    background-color: #47a3ff;
-    border-radius: 5px;
+    color: #47a3ff;
 }
 
-/* ===== NAV ===== */
+/* ===== 3. NAV (Sticky & Responsive Fix) ===== */
 .nav {
-    width: 800px;
-    left: 20%;
-    max-width: 1300px;
+    width: 95%;
+    max-width: 800px;
     margin: 20px auto;
     padding: 18px 20px;
     background: #111;
-    position: fixed;
-    top: 0;
-    z-index: 50;
+    border-radius: 15px;
+    box-shadow: 0 0 35px rgba(70, 163, 255, 0.25);
+
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    border-radius: 15px;
-    box-shadow: 0 0 35px rgba(70, 163, 255, 0.25);
+    left: 0;
+    right: 0;
 }
 
 .nav a {
@@ -172,10 +145,6 @@ header .overlay {
     text-decoration: none;
     font-size: 17px;
     transition: .3s;
-
-    i {
-        display: none;
-    }
 }
 
 .nav a:hover {
@@ -187,6 +156,103 @@ header .overlay {
     font-size: 26px;
     color: white;
     cursor: pointer;
+}
+
+/* ===== 4. ABOUT SECTION ===== */
+.about {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    padding: 80px 8%;
+    align-items: center;
+}
+
+.about h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #47a3ff;
+}
+
+.about p {
+    margin-bottom: 20px;
+    opacity: .9;
+}
+
+.about .location {
+    margin-top: 20px;
+    font-style: italic;
+    opacity: .7;
+}
+
+.about .photo img {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 12px;
+    box-shadow: 0 0 35px rgba(70, 163, 255, 0.25);
+    transition: .3s;
+}
+
+/* ===== 5. RESUME SECTION ===== */
+.resume {
+    padding: 80px 8%;
+}
+
+.resume h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #47a3ff;
+    margin-bottom: 40px;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.box {
+    background: #111;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 0 35px rgba(70, 163, 255, 0.25);
+    transition: .3s ease;
+}
+
+.box:hover {
+    transform: translateY(-6px);
+}
+
+.box h3 {
+    margin-bottom: 20px;
+    color: #47a3ff;
+}
+
+/* Progress Bars */
+.bar {
+    height: 9px;
+    background: #333;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: #47a3ff;
+}
+
+.timeline {
+    list-style: none;
+}
+
+.timeline li {
+    margin-bottom: 18px;
+}
+
+.timeline span {
+    font-weight: 600;
+    color: #47a3ff;
 }
 
 /* ===== FORM ===== */
@@ -201,10 +267,6 @@ header .overlay {
     justify-content: space-between;
     gap: 10px;
     width: 100%;
-}
-
-.text {
-    margin-top: 90px;
 }
 
 .rang {
@@ -233,145 +295,8 @@ header .overlay {
     cursor: pointer;
 }
 
-/* ===== ABOUT SECTION ===== */
-.about {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
-    padding: 80px 8%;
-    align-items: center;
-}
-
-.about h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    color: #47a3ff;
-}
-
-.about p {
-    margin-bottom: 20px;
-    opacity: .9;
-}
-
-.about .location {
-    margin-top: 20px;
-    font-style: italic;
-    opacity: .7;
-}
-
-/* PHOTO */
-.about .photo {
-    text-align: center;
-}
-
-.about .photo img {
-    width: 360px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 35px rgba(70, 163, 255, 0.25);
-    transition: .3s;
-}
-
-.about .photo img:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 50px rgba(70, 163, 255, 0.45);
-}
-
-/* ===== RESUME SECTION ===== */
-.resume {
-    padding: 80px 8%;
-}
-
-.resume h2 {
-    text-align: center;
-    font-size: 40px;
-    color: #47a3ff;
-    margin-bottom: 40px;
-}
-
-.resume-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-}
-
-/* BOX UNIVERSAL STYLE */
-.box {
-    background: #111;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 0 35px rgba(70, 163, 255, 0.25);
-    transition: .3s ease;
-}
-
-.box:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 50px rgba(70, 163, 255, 0.45);
-}
-
-.box h3 {
-    margin-bottom: 20px;
-    color: #47a3ff;
-}
-
-/* Bars */
-.bar {
-    height: 9px;
-    background: #333;
-    border-radius: 5px;
-    margin-bottom: 18px;
-    overflow: hidden;
-}
-
-.bar span {
-    display: block;
-    height: 100%;
-    background: #47a3ff;
-}
-
-.timeline {
-    list-style: none;
-}
-
-.timeline li {
-    margin-bottom: 18px;
-}
-
-.timeline span {
-    font-weight: 600;
-    color: #47a3ff;
-}
-
-.box ul {
-    padding-left: 20px;
-}
-
-.box ul li {
-    margin-bottom: 10px;
-    opacity: .9;
-}
-
-a {
-    color: white;
-}
-
-.photo {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    border: none;
-    border-radius: 20px;
-    margin-bottom: 50px;
-}
-
 .h2 {
     margin-top: 20px;
-}
-
-.rasim {
-    width: 300px;
-    height: 300px;
-    box-shadow: 0 0 50px rgba(70, 163, 255, 0.45);
 }
 
 .display {
@@ -385,224 +310,248 @@ a {
     margin-top: 90px;
 }
 
-/* Toast asosiy stili */
-.toast {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
+.social {
+    margin-top: 40px;
+}
+
+.social i {
+    font-size: 22px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: .3s;
     color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social i:hover {
+    color: white;
+    transform: scale(1.2);
+    background-color: #47a3ff;
+    border-radius: 5px;
+}
+
+/* ===== 6. LOYHALAR (PORTFOLIO) ===== */
+.loyhalar {
+    padding: 80px 8%;
+}
+
+.loyhalar h2 {
+    color: #47a3ff;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.loyhalar .photo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.rasim {
+    width: 32%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(70, 163, 255, 0.3);
+    transition: .3s;
+}
+
+.rasim:hover {
+    transform: scale(1.05);
+}
+
+/* ===== 7. CONTACT SECTION ===== */
+.contact {
+    padding: 80px 8%;
+}
+
+.display {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.forim {
+    flex: 1;
+}
+
+.input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.rang {
+    flex: 1;
+    background-color: #222;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 12px;
+    outline: none;
+}
+
+.matn {
+    width: 100%;
+    height: 100px;
+}
+
+.button {
+    background-color: #1c7fd6;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    color: white;
+    cursor: pointer;
     font-weight: 600;
-    z-index: 9999;
-
-    /* Dastlab ko'rinmaydi */
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin-bottom: 50px;
 }
 
-/* Toast ko'ringandagi holati */
-.toast.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
+.h2 {
+    text-align: center;
 }
 
-/* Muvaffaqiyat va Xatolik ranglari */
-.toast.success {
-    background-color: #2ecc71;
+.contact {
+    padding: 80px 8%;
+    font-size: 30px;
+    color: #47a3ff;
 }
 
-.toast.error {
-    background-color: #e74c3c;
-}
-
-/* ===============================
-   RESPONSIVE — SINGLE MEDIA QUERY
-   max-width: 900px
-================================ */
+/* ======================================================
+   8. MEDIA QUERIES (FULL RESPONSIVE) - 900px dan 350px gacha
+   ====================================================== */
 @media (max-width: 900px) {
 
-    /* ===== HEADER ===== */
-    header {
-        height: auto;
-        padding: 60px 20px;
-        margin: 0;
+    /* 1. Global Markazlash va Padding - Ikki tarafga 20px teng padding */
+    header,
+    section,
+    footer {
+        padding: 60px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        /* Chetga chiqib ketmasligi uchun */
     }
 
-    .header-content {
-        top: 0;
-        transform: none;
-    }
-
-    .header-content h1 {
-        font-size: 34px;
-        line-height: 1.2;
-        text-align: center;
-    }
-
-    .header-content p {
-        font-size: 17px;
-    }
-
-    /* ===== BUTTONS ===== */
-    .btn,
-    .btn-outline {
-        padding: 10px 24px;
-        font-size: 15px;
-        margin-top: 14px;
-    }
-
-    /* ===== NAV ===== */
+    /* 2. Navigatsiya - Ikki chetdan bir xil masofa */
     .nav {
-        width: 95%;
-        margin: 20px auto;
-        padding: 14px;
-        justify-content: space-between;
-        left: 50%;
-        transform: translateX(-50%);
+        width: calc(100% - 40px) !important;
+        left: 20px !important;
+        right: 20px !important;
+        margin: 15px 0 !important;
+        position: fixed !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        padding: 12px 20px !important;
+        z-index: 1000;
+        transform: none !important;
+        box-sizing: border-box !important;
     }
 
-    /* linklar yashirin */
     .nav a {
-        display: none;
-    }
-
-    /* MENU ICON */
-    .menu-icon {
-        display: block;
-        font-size: 26px;
-        color: white;
-        cursor: pointer;
-    }
-
-    /* ===== ABOUT ===== */
-    .about {
-        grid-template-columns: 1fr;
-        padding: 60px 20px;
-        text-align: center;
-    }
-
-    .about h2 {
-        font-size: 32px;
-    }
-
-    .about .photo img {
-        width: 100%;
-        max-width: 360px;
-        /* original desktop height saqlansin */
-        height: auto;
-        margin: 0 auto;
-    }
-
-    /* ===== RESUME ===== */
-    .resume {
-        padding: 60px 20px;
-    }
-
-    .resume-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* ===== PHOTO BLOCK ===== */
-    .photo {
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .rasim {
-        width: 100%;
-        max-width: 260px;
-        height: auto;
-        margin: 0 auto;
-    }
-
-    /* ===== DISPLAY ===== */
-    .display {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
-    /* ===== FORM ===== */
-    .forim {
-        width: 100%;
-        height: auto;
-    }
-
-    .input {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    /* ===== SOCIAL ICONS ===== */
-    .social i {
-        font-size: 18px;
-        margin: 0 6px;
-    }
-}
-
-/* ===== NAV VA HEADER RESPONSIV YECHIMI ===== */
-
-@media (max-width: 900px) {
-
-    /* 1. Navigatsiyani markazlash va moslashuvchan qilish */
-    .nav {
-        width: 95% !important;
-        /* Ekran kengligiga qarab o'zgaradi */
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        /* Markazda ushlab turadi */
-        padding: 12px 20px;
-    }
-
-    /* 2. Linklarni yashirish (Ikonka ichiga olish uchun) */
-    .nav-links {
-        display: none;
-        /* JavaScript 'active' klassi orqali ochadi */
-        flex-direction: column;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background: #111;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .nav-links.active {
-        display: flex;
-        /* Tugma bosilganda ko'rinadi */
+        display: none !important;
     }
 
     .menu-icon {
         display: block !important;
-        /* Ikonkani ko'rsatish */
+        font-size: 28px;
+        color: white;
     }
 
-    /* 3. Header va Rasmni to'g'rilash */
-    header {
-        height: 80vh;
-        /* Mobilda juda uzun bo'lib ketmasligi uchun */
+    /* 3. Rasmlar va Bloklar */
+    .about,
+    .resume-grid,
+    .photo,
+    .display {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px;
+        width: 100% !important;
     }
 
-    header .bg-img {
-        object-fit: cover;
-        /* Rasmni siqmasdan/cho'zmasdan kesib beradi */
-        object-position: center;
+    .rasim,
+    .about .photo img {
+        width: 100% !important;
+        max-width: 350px !important;
+        height: auto !important;
+        margin: 0 auto !important;
     }
 
+    /* 4. Contact qismidagi yozuvlarni kichraytirish */
+    .forim {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 10px !important;
+        /* Ichki kontent yopishib qolmasligi uchun */
+    }
+
+    .forim h2,
+    .forim h3,
+    .contact-title {
+        font-size: 22px !important;
+        /* Sarlavhalar kichraydi */
+    }
+
+    .input input,
+    .input textarea,
+    .rang {
+        font-size: 14px !important;
+        /* Yozuvlar kichraydi */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .input {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 15px;
+    }
+
+    /* 5. Toast (Xabarnoma) */
+    .toast {
+        width: calc(100% - 40px) !important;
+        right: 20px !important;
+        left: 20px !important;
+        bottom: 20px !important;
+        text-align: center;
+    }
+
+    /* 6. Ekran cheklovi */
+    body,
+    html {
+        overflow-x: hidden;
+        min-width: 350px;
+    }
+}
+
+/* 400px dan kichik ekranlar uchun */
+@media (max-width: 400px) {
     .header-content h1 {
-        font-size: 30px;
-        /* Matnni kichraytirish */
-        padding: 0 15px;
+        font-size: 24px !important;
     }
 
-    .header-content p {
-        font-size: 16px;
+    /* Contact formadagi matnlar yana ham ixchamroq */
+    .input input,
+    .input textarea {
+        font-size: 13px !important;
     }
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: 9999;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
 }

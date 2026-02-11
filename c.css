@@ -421,7 +421,7 @@ header .overlay {
    ====================================================== */
 @media (max-width: 900px) {
 
-    /* 1. Global Markazlash va Padding - Ikki tarafga 20px teng padding */
+    /* 1. Global Markazlash va Padding */
     header,
     section,
     footer {
@@ -432,10 +432,9 @@ header .overlay {
         text-align: center !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        /* Chetga chiqib ketmasligi uchun */
     }
 
-    /* 2. Navigatsiya - Ikki chetdan bir xil masofa */
+    /* 2. Navigatsiya - Ikonka o'ngda */
     .nav {
         width: calc(100% - 40px) !important;
         left: 20px !important;
@@ -460,7 +459,7 @@ header .overlay {
         color: white;
     }
 
-    /* 3. Rasmlar va Bloklar */
+    /* 3. Rasmlar va Bloklar - Tagma-tag (Ustma-ust) */
     .about,
     .resume-grid,
     .photo,
@@ -480,31 +479,32 @@ header .overlay {
         margin: 0 auto !important;
     }
 
-    /* 4. Contact qismidagi yozuvlarni kichraytirish */
+    /* 4. Contact qismi va Email yozuviga padding */
     .forim {
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 10px !important;
-        /* Ichki kontent yopishib qolmasligi uchun */
     }
 
     .forim h2,
     .forim h3,
     .contact-title {
         font-size: 22px !important;
-        /* Sarlavhalar kichraydi */
     }
 
+    /* Email va boshqa inputlarga padding berildi */
     .input input,
     .input textarea,
     .rang {
         font-size: 14px !important;
-        /* Yozuvlar kichraydi */
         width: 100% !important;
         box-sizing: border-box !important;
+        padding: 12px 15px !important;
+        /* Faqat shu yerga padding qo'shildi */
     }
 
     .input {
+        display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
         gap: 15px;
@@ -519,24 +519,24 @@ header .overlay {
         text-align: center;
     }
 
-    /* 6. Ekran cheklovi */
+    /* 6. Ekran cheklovi va Skrolni oldini olish */
     body,
     html {
-        overflow-x: hidden;
+        overflow-x: hidden !important;
         min-width: 350px;
     }
 }
 
-/* 400px dan kichik ekranlar uchun */
+/* 400px dan kichik ekranlar uchun yakuniy tuzatishlar */
 @media (max-width: 400px) {
     .header-content h1 {
         font-size: 24px !important;
     }
 
-    /* Contact formadagi matnlar yana ham ixchamroq */
     .input input,
     .input textarea {
         font-size: 13px !important;
+        padding: 10px 12px !important;
     }
 }
 
